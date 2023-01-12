@@ -1,14 +1,17 @@
-// In this example, the function assignScore takes a string variable as an input and assigns a score based on the value of the string. The function uses an if-else statement to check the value of the string, and assigns a corresponding score based on the conditions.
+// declare variables from Google Sheet
+let riskTolerance = e.values[6];
 
-function assignScore(stringValue) {
+// In the example below, the function assignScore takes a string variable as an input and assigns a score based on the value of the string. The function uses an if-else statement to check the value of the string, and assigns a corresponding score based on the conditions.
+
+function assignRiskScore(riskTolerance) {
     var score = 0;
-    if (stringValue === "A") {
+    if (stringValue === "a real gambler") {
         score = 4;
-    } else if (stringValue === "B") {
+    } else if (stringValue === "willing to take risks after completing adequate research") {
         score = 3;
-    } else if (stringValue === "C") {
+    } else if (stringValue === "Cautious") {
         score = 2;
-    } else if (stringValue === "D") {
+    } else if (stringValue === "plays it safe, avoids risk") {
         score = 1;
     } else {
         score = 0;

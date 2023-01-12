@@ -1,17 +1,17 @@
 // declare variables from Google Sheet
 let questionSix = e.values[6];
 
-// In the example below, the function assignScore takes a string variable as an input and assigns a score based on the value of the string. The function uses an if-else statement to check the value of the string, and assigns a corresponding score based on the conditions.
+// the function assignRiskScore takes a string variable as an input and assigns a score based on the value of the string. The function uses an if-else statement to check the value of the string, and assigns a corresponding score based on the conditions.
 
 function assignRiskScore(questionSix) {
     var riskScore = 0;
-    if (stringValue === "a real gambler") {
+    if (questionSix === "a real gambler") {
         riskScore = 4;
-    } else if (stringValue === "willing to take risks after completing adequate research") {
+    } else if (questionSix === "willing to take risks after completing adequate research") {
         riskScore = 3;
-    } else if (stringValue === "Cautious") {
+    } else if (questionSix === "Cautious") {
         riskScore = 2;
-    } else if (stringValue === "plays it safe, avoids risk") {
+    } else if (questionSix === "plays it safe, avoids risk") {
         riskScore = 1;
     } else {
         riskScore = 0;
@@ -19,16 +19,26 @@ function assignRiskScore(questionSix) {
     return riskScore;
 }
 
+// the function assignRiskTolerance takes the riskScore that was determined based on question responses and converts those values into text that can be logged to the template file
+
 let riskTolerance;
 
-function assignRiskTolerance(score) {
-if (score = 4) {
-  stringValue = "high";
-} else {
-  stringValue = "high";
-}
-console.log(stringValue); // "low"
+function assignRiskTolerance(riskScore) {
+    let riskTolerance;
 
+    if (riskScore === 4) {
+        riskTolerance = "high";
+    } else if (riskScore === 3) {
+        riskTolerance = "medium";
+    } else if (riskScore === 2) {
+        riskTolerance = "low";
+    } else if (riskScore === 1) {
+        riskTolerance = "low";
+    } else {
+        riskTolerance = "medium";
+    }
+    return riskTolerance;
+}
 
 // Another way to assign scores based on a string value is by using a lookup object, also known as a dictionary, where the keys are the possible string values and the values are the scores.
 

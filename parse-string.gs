@@ -29,3 +29,9 @@ var scores = {
 function assignScore(stringValue) {
   return scores[stringValue] || 0;
 }
+
+//In this example, the lookup object is defined with the possible values as keys and the corresponding scores as values. Then when calling the function, the value passed as a parameter is used as a key to look up the corresponding score, and if the key is not present in the object, the function return 0 as a default value.
+
+var stringValue = "A";
+var score = assignScore(stringValue);
+console.log(score); // Output: 4

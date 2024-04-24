@@ -190,11 +190,21 @@ function autoFillIPSTemplateGoogleDoc(e) {
   let internationalStocks = Math.round(relativePercentages.IE) + "%";
   let realEstate = Math.round(relativePercentages.RE) + "%";
 
-  // Insert the generated chart into the document
-  var doc = DocumentApp.openById(templateID);
-  var chart = generatePieChart(relativePercentages);
-  var base64ImageData = convertChartToBase64(chart);
-  insertChartIntoDoc(doc, base64ImageData);
+// Get the active sheet
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+  // Get the last row
+  const lastRow = sheet.getLastRow();
+
+  // Define the column where you want to insert the relative percentages
+  const column = 32; // Column AG
+
+  // Insert the relative percentages into the last row
+  sheet.getRange(lastRow + 1, column).setValue(cash);
+  sheet.getRange(lastRow + 1, column + 1).setValue(fixedIncome);
+  sheet.getRange(lastRow + 1, column + 2).setValue(domesticStocks);
+  sheet.getRange(lastRow + 1, column + 3).setValue(internationalStocks);
+  sheet.getRange(lastRow + 1, column + 4).setValue(realEstate);
 
   // Assign score to risk tolerance
   // The function assignRiskScore assigns a score based on the response to question6
